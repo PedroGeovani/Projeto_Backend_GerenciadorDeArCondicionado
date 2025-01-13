@@ -1,0 +1,28 @@
+{
+  "name": "Gerenciadordearcondicionado",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node-schedule": "2.1.7",
+    "axios": "1.7.9",
+    "cors": "2.8.5",
+    "dotenv": "16.4.7",
+    "express": "4.21.2",
+    "moment": "2.30.1",
+    "mongoose": "^8.9.6",
+    "node-schedule": "2.1.1",
+    "schedule": "0.5.0"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.17",
+    "@types/express": "5.0.0",
+    "@types/mysql": "2.15.26"
+  }
+}
