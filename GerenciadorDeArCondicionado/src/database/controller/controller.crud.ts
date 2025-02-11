@@ -11,7 +11,7 @@ export const getListMeneger = async ( _: any, response: any) => {
 
 export const getMenegerByEnvoronment = async ( request: any, response: any) => {
   try {
-    const getMeneger = await Meneger.find({environment: request.body.environment})
+    const getMeneger = await Meneger.find({environment: request.params.environment})
     response.status(200).send(getMeneger)
   } catch(error) {
     response.status(400).send(error)
@@ -55,7 +55,7 @@ export const updateMeneger = async (request: any, response: any) => {
 
 export const excludeMeneger = async (request: any, response: any) => {
   try {
-    const excludeMeneger = await Meneger.findByIdAndDelete({ _id: request.body._id })
+    const excludeMeneger = await Meneger.findByIdAndDelete({ _id: request.params._id })
     response.status(200).send('Deleteado com sucesso')
   } catch (error) {
     response.status(400).send(error)
