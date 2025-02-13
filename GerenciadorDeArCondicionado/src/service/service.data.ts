@@ -25,7 +25,7 @@ export class DataReception {
       console.log(error)
       console.log('Agendamentos inacessíveis...') 
       database.connection.on('disconnected', () => {
-        console.log('database desconectado! Reinicie o servidor...')     
+      console.log('database desconectado! Reinicie o servidor...')     
       })
     })
 

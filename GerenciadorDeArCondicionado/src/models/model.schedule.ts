@@ -1,6 +1,7 @@
 export class modelSchedule {
   constructor(
     public _id: string,
+    public date: string,
     public environment: string,
     public startTimeMorning: string,
     public endTimeMorning: string,

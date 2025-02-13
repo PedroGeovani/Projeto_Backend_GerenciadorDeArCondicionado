@@ -1,11 +1,12 @@
 import express from "express";
-import { createMeneger, excludeMeneger, getListMeneger, getMenegerByEnvoronment, updateMeneger } from "../controller/controller.crud";
+import { createMeneger, excludeMeneger, getListMeneger, getMenegerByEnvironmentAndDate, getMenegerByEnvironment, updateMeneger } from "../controller/controller.crud";
 import { createEnvironment, excludeEnvironment, getEnvironmentOne, getListEnvironment, updateEnvironment } from "../controller/controller.environment.crud";
 
 const router = express.Router() 
 
 router.get("/getList", getListMeneger)
-router.get("/getEnvironment/:environment", getMenegerByEnvoronment)
+router.get("/getEnvironment/:environment/:date", getMenegerByEnvironmentAndDate)
+router.get("/getEnvironment/:environment/", getMenegerByEnvironment)
 router.post("/create", createMeneger)
 router.put("/update", updateMeneger)
 router.delete("/exclude/:_id", excludeMeneger)

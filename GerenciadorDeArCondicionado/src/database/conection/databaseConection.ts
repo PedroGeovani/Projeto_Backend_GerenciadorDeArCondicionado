@@ -8,7 +8,7 @@ const nameDatabase = process.env.DATABASE_NAME
 
 main().catch(err => console.log(err));
 
-export async function main() {
+export async function main() {  
   try {   
     await database.connect(`${url}`/*,clientOptions*/)
     console.log("Conectado com sucesso ao banco de dados...");
@@ -19,6 +19,7 @@ export async function main() {
 
 interface IMeneger {
   environment: String, 
+  date: String,
   startTimeMorning: String,
   endTimeMorning: String,
   startTimeAfternoon: String,
@@ -29,6 +30,7 @@ interface IMeneger {
 
 const menegerSchema = new Schema<IMeneger>({
   environment: { type: String, required: true },
+  date: String,
   startTimeMorning: String,
   endTimeMorning: String,
   startTimeAfternoon: String,
