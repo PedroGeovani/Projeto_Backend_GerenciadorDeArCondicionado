@@ -1,29 +1,18 @@
 {
-  "name": "Gerenciadordearcondicionado",
+  "name": "Gerenciador",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
+  "description": "Projeto de gerenciamento de ar-condicionado",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts"
+    "start": "node index",
+    "dev": "nodemon index"
   },
-  "author": "",
+  "author": "Pedro Geovani S. C.",
   "license": "ISC",
   "dependencies": {
-    "@types/node-schedule": "2.1.7",
-    "axios": "1.7.9",
-    "cors": "2.8.5",
-    "dotenv": "16.4.7",
-    "express": "4.21.2",
-    "moment": "2.30.1",
-    "mongoose": "^8.9.6",
-    "mqtt": "^5.10.3",
-    "node-schedule": "2.1.1",
-    "schedule": "0.5.0"
-  },
-  "devDependencies": {
-    "@types/cors": "2.8.17",
-    "@types/express": "5.0.0",
-    "@types/mysql": "2.15.26"
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1",
+    "node-schedule": "^2.1.1",
+    "nodemon": "^3.1.9"
   }
 }
