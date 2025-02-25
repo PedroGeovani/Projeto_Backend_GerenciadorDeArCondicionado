@@ -1,6 +1,6 @@
-const { menegerSchedule } = require('../menegerSchedule/meneger')
 const environmentService = require('../service/environment.service')
 const mongoose = require('mongoose')
+const updateSchedule = require('../menegerSchedule/updateSchedule')
 
 const create = async (req, res) => {
   try {
@@ -12,6 +12,9 @@ const create = async (req, res) => {
     if (!content) {
       return res.status(404).send({ message: "Error creating environment" })
     }
+
+    updateSchedule()
+
     res.status(200).send({
       message: "Object created successfully",
       status: 200,
@@ -31,6 +34,7 @@ const findAll = async (req, res) => {
         message: 'No registered environments'
       })
     }
+
     res.status(200).send({
       message: "Sucess",
       status: 200,
@@ -131,6 +135,9 @@ const update = async (req, res) => {
   }*/
 
   const content = await environmentService.updateService(id, body)
+
+  updateSchedule()
+
   res.status(200).send({
     message: 'Update Sucess',
     status: 200,
@@ -159,6 +166,13 @@ const excludeOne = async (req, res) => {
 
     const content = environmentService.excludeOneService(id)
       .then((deleteContact) => {
+
+        updateSchedule()
+        /* schedule.gracefulShutdown().then(() => {
+          console.log("Reiniciando Agendamentos.")      
+          menegerSchedule()
+        }).catch((error) => console.error(error))  */
+
         res.status(200).send({
           message: 'Exclude Sucess',
           status: 200,

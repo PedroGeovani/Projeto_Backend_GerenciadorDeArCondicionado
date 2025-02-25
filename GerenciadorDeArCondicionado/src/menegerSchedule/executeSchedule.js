@@ -1,6 +1,5 @@
 const schedule = require('node-schedule')
-const environment = require('../models/environment.model')
-const { menegerSchedule } = require('./meneger')
+
 /*
 content arrey de environment -> [{environment,dates[{date, times[{start_times, end_times}]}]}]
 actionON string,
@@ -27,7 +26,7 @@ times is array type date
 command is string for OFF
 */
 const executeTimeInterval = (environment, date, times, action) => {
-  let dayInit = date
+  let dayInit = new Date(date.setHours(0,0,0))
   let dayFinal = new Date(date.setHours(23, 59, 59))  
   for (let index = 0; index <= times.length; index++) {
     let init = null
@@ -52,20 +51,4 @@ const executeSchedule = (environment, start, end, action) => {
   })
 }
 
-const cancelSchedule = (environment) => {
-  schedule.gracefulShutdown()
-  .then(() => {
-    console.log("Agendamento reiniciado...")
-    menegerSchedule()
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-}
-
-module.exports = {
-  executeTimeInterval,
-  executeTimeProgram,
-  scanEnvironments,
-  cancelSchedule
-}
+module.exports = { scanEnvironments }
