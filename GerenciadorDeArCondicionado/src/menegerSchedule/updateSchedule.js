@@ -1,5 +1,5 @@
 const schedule = require('node-schedule')
-const { menegerSchedule } = require('../menegerSchedule/meneger')
+const menegerSchedule = require('../menegerSchedule/meneger')
 
 const updateSchedule = () => {
 

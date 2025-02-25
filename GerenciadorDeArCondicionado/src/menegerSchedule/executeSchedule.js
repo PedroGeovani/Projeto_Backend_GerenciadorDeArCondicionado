@@ -1,4 +1,5 @@
 const schedule = require('node-schedule')
+const { connectMQTT } = require('../mqtt/index')
 
 /*
 content arrey de environment -> [{environment,dates[{date, times[{start_times, end_times}]}]}]
@@ -47,7 +48,7 @@ const executeTimeProgram = (environment, times, action) => {
 
 const executeSchedule = (environment, start, end, action) => {
   schedule.scheduleJob({ start, end, rule: '*/5 * * * * *' }, () => {
-    console.log('Emitido ' + action + ' para o ambiente ' + environment)
+    connectMQTT('SALA/ESTADO', environment)  //SALA/ESTADO DEVE SER SUBSTITUIDO POR ENVIRONMENT
   })
 }
 

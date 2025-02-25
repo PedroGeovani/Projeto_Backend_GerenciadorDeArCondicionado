@@ -1,42 +1,38 @@
 const mqtt = require('mqtt')
 
-const host = 'broker.emqx.io'
-const port = 1883
-const url = `mqtt://${host}:${port}` 
 
-const connectMQTT = () => {    
-
+const connectMQTT = (environment, action) => {    
+  
   const options = {
-    username:"IFCEMeneger",   
-    password:"123456",
-    clientId: "mqttx_9be41f9a",
-    reconnectPeriod: 4000,
+    protocol: 'mqtt',
+    host: '192.168.119.84',
+    port: 1884,
     clean: true
   }
 
-  const client = mqtt.connect(url, options)
+  const client = mqtt.connect(options)
   
-  const pubTopic = "TOPIC/output"
-  const subTopic = "TOPIC/input"
+  const pubTopic = environment
+  //const subTopic = "TOPIC/input"
 
   console.log(client.connected)
   client.on("connect",() => {	     
     console.log("Cliente mqtt conectado.")
 
-    client.subscribe([subTopic], () => { //me^nsagem enviada
+   /*  client.subscribe([subTopic], () => { //me^nsagem enviada
       console.log(`Inscrito no tópico ${subTopic}`)
-    })
+    }) */
 
-    client.publish(pubTopic, 'Publicando: Sala 25', {qos: 0, retain: false}, (error) => {
+    client.publish(pubTopic, action, {qos: 0, retain: true}, (error) => {
       if(error){
         console.error(error)
       }
     })
   })
 
-  client.on('message', (subTopico, payload) => { //mensagem recebida
+  /* client.on('message', (subTopico, payload) => { //mensagem recebida
     console.log("Mensagem recebida: "+subTopico, payload.toString)
-  })
+  }) */
 }
 
 module.exports = { connectMQTT }
