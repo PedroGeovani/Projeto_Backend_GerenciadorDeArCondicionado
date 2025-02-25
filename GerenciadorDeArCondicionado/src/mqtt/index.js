@@ -14,7 +14,7 @@ const connectMQTT = (environment, action) => {
 
   const pubTopic = environment
   client.on("connect", () => {
-    console.log("Cliente mqtt conectado.")
+    console.log("Mqtt client connected.")
 
     client.publish(pubTopic, action, { qos: 0, retain: true }, (error) => {
       if (error) {
