@@ -9,7 +9,7 @@ const menegerSchedule = async() => {
     scanEnvironments(content,"ON","OFF")
   })
   .catch((error) => {
-    console.log("Saida de erro: "+error)
+    console.log("findAllService: "+error)
   })  
 }
 

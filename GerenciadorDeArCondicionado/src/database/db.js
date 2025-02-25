@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-const url = "mongodb+srv://pedrogeovani:hEYkyfZKqytLlOae@air-conditioning.ezokv.mongodb.net/?retryWrites=true&w=majority&appName=air-conditioning?directConnection=true"
-
+const url = process.env.URL_MONGODB_DATABASE
 const connectDatabase = () => {
   mongoose.connect( url )
   .then(() => console.log("MongoDb connected"))
   .catch((erro) => {
-    console.log(erro)
+    console.log("ConnectDatabase: "+erro)
   })
 }
 

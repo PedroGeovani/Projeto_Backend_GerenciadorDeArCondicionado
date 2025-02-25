@@ -6,7 +6,7 @@ const updateSchedule = () => {
   schedule.gracefulShutdown().then(() => {
     console.log("Update schedule.")      
     menegerSchedule()
-  }).catch((error) => console.error(error)) 
+  }).catch((error) => console.log("UpdateSchedule: "+error)) 
 
 }
 

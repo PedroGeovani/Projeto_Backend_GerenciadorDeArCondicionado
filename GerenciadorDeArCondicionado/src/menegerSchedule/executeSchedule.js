@@ -48,7 +48,7 @@ const executeTimeProgram = (environment, times, action) => {
 
 const executeSchedule = (environment, start, end, action) => {
   schedule.scheduleJob({ start, end, rule: '*/5 * * * * *' }, () => {
-    connectMQTT('SALA/ESTADO', environment)  //SALA/ESTADO DEVE SER SUBSTITUIDO POR ENVIRONMENT
+    connectMQTT('SALA/ESTADO', `${environment}:${action}`)  //SALA/ESTADO DEVE SER SUBSTITUIDO POR ENVIRONMENT
   })
 }
 

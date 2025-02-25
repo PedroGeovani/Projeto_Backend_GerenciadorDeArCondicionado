@@ -10,6 +10,7 @@
   "author": "Pedro Geovani S. C.",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.10.1",
     "mqtt": "^5.10.3",
